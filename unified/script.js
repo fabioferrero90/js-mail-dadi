@@ -18,15 +18,16 @@ const allowedEmails = [
   "stefano@boolean.it",
 ]
 let isAllowed;
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 //Inizio il ciclo
 while (!isAllowed) {
   // Mostro un prompt dove inserire la mail
   let promptedEmail = prompt("Inserisci il tuo indirizzo mail");
-
+  let message = "Questa non è una mail valida";
   // Controllo che nel prompt sia stata inserita una mail
-  if (promptedEmail && promptedEmail.includes('@') && promptedEmail.includes('.')){
-
+  if (promptedEmail && emailRegex.test(promptedEmail)){
+  
       // Controllo che la mail inserita sia nella lista (BONUS: e che sia una mail), e se si, procedo con il gioco dei dadi
     for( let i = 0 ; i < allowedEmails.length; i++) {
       if (promptedEmail.toLowerCase() == allowedEmails[i]){
@@ -45,7 +46,7 @@ while (!isAllowed) {
         const computerDice = Math.ceil(Math.random()*6);
 
         //Stabilisco il vincitore
-        let winner = "Il Computer ha vinto!"
+        let winner = "Il Computer ha vinto!";
         if (playerDice == computerDice) {
           winner = "Nessuno dei due ha vinto";
         } else if (playerDice > computerDice){
@@ -57,9 +58,10 @@ while (!isAllowed) {
         alert(message);
       }
     }
-  } else if (!promptedEmail || !(promptedEmail.includes('@') && promptedEmail.includes('.'))){
-    alert("Devi inserire una mail valida per giocare!");
-  } else {
+  } else if (!promptedEmail || !emailRegex.test(promptedEmail)){
+    alert("Devi inserire una mail valida!");
+  }
+  if (promptedEmail && emailRegex.test(promptedEmail) && !isAllowed){
     alert("Questa non è una mail valida per giocare!");
   }
 }
