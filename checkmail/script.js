@@ -31,8 +31,8 @@ while (!isAllowed) {
   if (promptedEmail && emailRegex.test(promptedEmail)){
 
       // Controllo che la mail inserita sia nella lista (BONUS: e che sia una mail), e se si, procedo con il gioco dei dadi
-    for( let i = 0 ; i < allowedEmails.length; i++) {
-      if (promptedEmail.toLowerCase() == allowedEmails[i]){
+    for(const element of allowedEmails) {
+      if (promptedEmail.toLowerCase() == element){
         isAllowed = true;
         message = "La tua mail ha accesso a questa pagina!";
       }

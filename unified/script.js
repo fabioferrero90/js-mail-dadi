@@ -29,8 +29,8 @@ while (!isAllowed) {
   if (promptedEmail && emailRegex.test(promptedEmail)){
   
       // Controllo che la mail inserita sia nella lista (BONUS: e che sia una mail), e se si, procedo con il gioco dei dadi
-    for( let i = 0 ; i < allowedEmails.length; i++) {
-      if (promptedEmail.toLowerCase() == allowedEmails[i]){
+    for(const element of allowedEmails) {
+      if (promptedEmail.toLowerCase() == element){
         isAllowed = true;
         alert("La tua mail ha accesso a questo gioco, premi OK per lanciare i dadi!");
 
@@ -59,9 +59,10 @@ while (!isAllowed) {
       }
     }
   } else if (!promptedEmail || !emailRegex.test(promptedEmail)){
-    alert("Devi inserire una mail valida!");
+    message = "Devi inserire una mail valida!";
   }
   if (promptedEmail && emailRegex.test(promptedEmail) && !isAllowed){
-    alert("Questa non è una mail valida per giocare!");
+    message = "Questa non è una mail valida per giocare!";
   }
+  alert(message)
 }
