@@ -18,7 +18,7 @@ const allowedEmails = [
   "stefano@boolean.it",
 ]
 let isAllowed;
-const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const emailRegex = /[-_a-zA-Z.+!%0-9]{2,}@[a-zA-Z0-9]{2,}\.[a-zA-Z.]{2,}/;
 
 //Inizio il ciclo
 while (!isAllowed) {

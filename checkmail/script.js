@@ -17,7 +17,7 @@ const allowedEmails = [
   "ugo@boolean.it",
   "stefano@boolean.it",
 ]
-const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const emailRegex = /[-_a-zA-Z.+!%0-9]{2,}@[a-zA-Z0-9]{2,}\.[a-zA-Z.]{2,}/;
 let isAllowed;
 
 //Inizio il ciclo
